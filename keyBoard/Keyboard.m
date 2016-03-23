@@ -19,7 +19,11 @@
             if (textField.text.length % 5 == 3 && textField.text.length < 22)
             {
                 textField.text = [NSString stringWithFormat:@"%@ ",textField.text];
-                block( textField.text,YES);
+                if (textField.text.length == number && block)
+                {
+                    block( textField.text,YES);
+                }
+                
                
             }
             if (toBeString.length >= number)
@@ -43,7 +47,12 @@
         {
             toBeString = [toBeString substringToIndex:number];
             textField .text= toBeString;
-            block(textField.text,YES);
+            
+            if (textField.text.length == number && block)
+            {
+                block( textField.text,YES);
+            }
+
             [textField resignFirstResponder];
             
             return;
